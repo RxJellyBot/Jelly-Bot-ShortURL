@@ -25,7 +25,7 @@ if not mongo_shorturl_col:
     sys.exit(1)
 
 
-@app.route('/<str:url_code>/')
+@app.route('/<string:url_code>/')
 def short_url(url_code):
     data = mongo_shorturl_col.find_one({fldn_code: url_code})
     if not data:
