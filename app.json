@@ -13,6 +13,10 @@
     "KEY_TARGET": {
       "description": "The field name / key of the target in the short url record.",
       "required": true
+    },
+    "HOST_URL": {
+      "description": "The URL of the app. Including protocol.",
+      "required": true
     }
   }
 }
