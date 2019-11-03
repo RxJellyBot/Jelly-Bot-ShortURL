@@ -29,6 +29,11 @@ if not mongo_shorturl_col:
     sys.exit(1)
 
 
+@app.route('/')
+def home():
+    return "Jelly Bot Short URL Service"
+
+
 @app.route('/<string:url_code>/')
 def short_url(url_code):
     data = mongo_shorturl_col.find_one({fldn_code: url_code})
