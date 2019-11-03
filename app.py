@@ -1,17 +1,12 @@
 import os
 import sys
 
-import requests
-from flask import Flask, redirect
+from flask import Flask, redirect, abort
 import pymongo
 
 # Env vars init
 fldn_code = os.environ["KEY_CODE"]
 fldn_target = os.environ["KEY_TARGET"]
-not_found_url = os.environ["NOT_FOUND_URL"]
-if requests.get(not_found_url).status_code != 200:
-    print("URL to go when not found did not return 200.")
-    sys.exit(1)
 
 # Flask init
 app = Flask(__name__)
@@ -34,7 +29,7 @@ if not mongo_shorturl_col:
 def short_url(url_code):
     data = mongo_shorturl_col.find_one({fldn_code: url_code})
     if not data:
-        return redirect(not_found_url, code=404)
+        return abort(404)
 
     return redirect(data[fldn_target], code=302)
 

@@ -13,10 +13,6 @@
     "KEY_TARGET": {
       "description": "The field name / key of the target in the short url record.",
       "required": true
-    },
-    "NOT_FOUND_URL": {
-      "description": "The url to go if the record cannot be found.",
-      "required": true
     }
   }
 }
