@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+from datetime import datetime, timezone
 from threading import Thread
 
 import requests
@@ -8,8 +9,11 @@ from flask import Flask, redirect, abort
 import pymongo
 
 # Env vars init
+from pymongo import ReturnDocument
+
 fldn_code = os.environ["KEY_CODE"]
 fldn_target = os.environ["KEY_TARGET"]
+fldn_ts = os.environ["KEY_TS"]
 host_url = os.environ["HOST_URL"]
 
 # Flask init
@@ -36,7 +40,10 @@ def home():
 
 @app.route('/<string:url_code>/')
 def short_url(url_code):
-    data = mongo_shorturl_col.find_one({fldn_code: url_code})
+    data = mongo_shorturl_col.find_one_and_update(
+        {fldn_code: url_code},
+        {"$addToSet": {fldn_ts: datetime.utcnow().replace(tzinfo=timezone.utc)}},
+        upsert=False, return_document=ReturnDocument.AFTER)
     if not data:
         return abort(404)
 
