@@ -38,6 +38,7 @@ def home():
     return "Jelly Bot Short URL Service"
 
 
+@app.route('/<string:url_code>')
 @app.route('/<string:url_code>/')
 def short_url(url_code):
     data = mongo_shorturl_col.find_one_and_update(
