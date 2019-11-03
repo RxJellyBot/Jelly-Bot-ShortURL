@@ -19,7 +19,7 @@
       "required": true
     },
     "HOST_URL": {
-      "description": "The URL of the app. Including protocol.",
+      "description": "The URL of the app. Including protocol. Excluding slash.",
       "required": true
     }
   }
