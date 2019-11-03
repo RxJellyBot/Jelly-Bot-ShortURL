@@ -21,6 +21,10 @@
     "HOST_URL": {
       "description": "The URL of the app. Including protocol. Excluding slash.",
       "required": true
+    },
+    "LANDING_URL": {
+      "description": "The URL of the landing home page to redirect to.",
+      "required": true
     }
   }
 }

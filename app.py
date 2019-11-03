@@ -15,6 +15,7 @@ fldn_code = os.environ["KEY_CODE"]
 fldn_target = os.environ["KEY_TARGET"]
 fldn_ts = os.environ["KEY_TS"]
 host_url = os.environ["HOST_URL"]
+landing_url = os.environ["LANDING_URL"]
 
 # Flask init
 app = Flask(__name__)
@@ -35,6 +36,11 @@ if not mongo_shorturl_col:
 
 @app.route('/')
 def home():
+    return redirect(landing_url)
+
+
+@app.route('/test')
+def test():
     return "Jelly Bot Short URL Service"
 
 
