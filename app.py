@@ -54,7 +54,7 @@ def short_url(url_code):
     if not data:
         return abort(404)
 
-    return redirect(data[fldn_target], code=302)
+    return redirect(data[fldn_target], code=301)
 
 
 def spam_ping(cd_sec: int, retry_sec: int = 60):
