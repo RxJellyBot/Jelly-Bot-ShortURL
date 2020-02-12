@@ -23,7 +23,7 @@ app = Flask(__name__)
 # Mongo init
 mongo_client = pymongo.MongoClient(os.environ["MONGO_URL"])
 try:
-    mongo_shorturl_col = mongo_client.get_database("heroku_h9hh5n4n").get_collection("surl.data")
+    mongo_shorturl_col = mongo_client.get_database(os.environ["MONGO_DB"]).get_collection(os.environ["MONGO_COL"])
 except Exception as e:
     print("Error occurred when trying to find Mongo Short URL collection. Terminating the app.")
     print(e)
