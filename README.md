@@ -1,0 +1,2 @@
+# Jelly-Bot-ShortURL
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8bd1a50b8b2a49d5b068b1bdad54e7fc)](https://app.codacy.com/gh/RxJellyBot/Jelly-Bot-ShortURL?utm_source=github.com&utm_medium=referral&utm_content=RxJellyBot/Jelly-Bot-ShortURL&utm_campaign=Badge_Grade_Dashboard)
