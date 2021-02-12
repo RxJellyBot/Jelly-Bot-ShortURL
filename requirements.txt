@@ -2,3 +2,6 @@ flask
 pymongo
 requests
 dnspython
+
+# Heroku deployment
+gunicorn
